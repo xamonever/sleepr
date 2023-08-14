@@ -1,5 +1,5 @@
 steps:
-  - name: 'grc.io/cloud-builders/docker'
+  - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'build'
       - '-t'
@@ -7,12 +7,12 @@ steps:
       - '-f'
       - 'apps/reservations/Dockerfile'
       - '.'
-  - name: 'grc.io/cloud-builders/docker'
+  - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
       - 'europe-central2-docker.pkg.dev/hobsleepr/reservations/production'
 
-  - name: 'grc.io/cloud-builders/docker'
+  - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'build'
       - '-t'
@@ -20,12 +20,12 @@ steps:
       - '-f'
       - 'apps/auth/Dockerfile'
       - '.'
-  - name: 'grc.io/cloud-builders/docker'
+  - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
       - 'europe-central2-docker.pkg.dev/hobsleepr/auth/production'
 
-  - name: 'grc.io/cloud-builders/docker'
+  - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'build'
       - '-t'
@@ -33,12 +33,12 @@ steps:
       - '-f'
       - 'apps/notifications/Dockerfile'
       - '.'
-  - name: 'grc.io/cloud-builders/docker'
+  - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
       - 'europe-central2-docker.pkg.dev/hobsleepr/notifications/production'
 
-  - name: 'grc.io/cloud-builders/docker'
+  - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'build'
       - '-t'
@@ -46,7 +46,7 @@ steps:
       - '-f'
       - 'apps/payments/Dockerfile'
       - '.'
-  - name: 'grc.io/cloud-builders/docker'
+  - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
       - 'europe-central2-docker.pkg.dev/hobsleepr/payments/production'
