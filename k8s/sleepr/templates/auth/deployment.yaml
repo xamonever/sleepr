@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: auth
+  name: auth
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auth
+  template:
+    metadata:
+      labels:
+        app: auth
+    spec:
+      containers:
+      - image: europe-central2-docker.pkg.dev/hobsleepr/auth/production
+        name: auth
+        ports:
+          - containerPort: 3001
+          - containerPort: 3002
+        env:
+          - name: PORT
+            value: '3001'
+          - name: TCP_PORT
+            value: '3002'
+          - name: JWT_SECRET
+            value: 123asda
+          - name: JWT_EXPIRATION
+            value: '3600'
+          - name: MONGO_URI
+            valueFrom:
+              secretKeyRef:
+                name: mongodb
+                key: connectionString
