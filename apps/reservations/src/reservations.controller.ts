@@ -27,7 +27,7 @@ export class ReservationsController {
     return this.reservationsService.create(createReservationDto, user);
   }
 
-  @Get()
+  @Get('all')
   async findAll() {
     return this.reservationsService.findAll();
   }
