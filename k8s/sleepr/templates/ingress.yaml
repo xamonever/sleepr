@@ -22,3 +22,11 @@ spec:
                   number: 3001
             pathType:
               ImplementationSpecific
+          - path: /users/*
+            backend:
+              service:
+                name: auth-http
+                port:
+                  number: 3001
+            pathType:
+              ImplementationSpecific
